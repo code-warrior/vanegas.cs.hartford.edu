@@ -1,0 +1,20 @@
+html {
+   background: transparent url('../img/cool-background.svg') no-repeat fixed 0 0 / cover;
+   color: #222;
+}
+
+h1 {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 500px;
+   margin-left: 30px;
+   letter-spacing: .35rem;
+   font-family: Codystar, cursive;
+}
+
+@media (max-height: 870px) {
+   html {
+      background-position: 200px 0;
+   }
+}
