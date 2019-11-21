@@ -13,8 +13,36 @@ h1 {
    font-family: Codystar, cursive;
 }
 
-@media (max-height: 870px) {
+#workshops--git {
+   background: none;
+}
+
+#workshops--git main {
+   margin: auto;
+   text-align: center;
+}
+
+#workshops--git main > a > img {
+   width: 800px;
+}
+
+@media (max-width: 1100px) {
+   #workshops--git header {
+      text-align: center;
+   }
+
+   #workshops--git header h1 {
+      position: static;
+      width: auto;
+   }
+}
+
+@media (max-width: 816px) {
    html {
       background-position: 200px 0;
+   }
+
+   #workshops--git main > a > img {
+      width: 100%;
    }
 }
