@@ -1,0 +1,81 @@
+body {
+  font-family: 'Bitter', serif;
+  font-weight: 300;
+  line-height: 1.6;
+  width: 960px;
+  margin: auto;
+}
+
+code {
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+header h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3 {
+  padding: 12px;
+  margin-left: -12px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 4px;
+}
+
+h3 a:link,
+h3 a:visited {
+  color: #222;
+  border-color: transparent;
+}
+
+a:link,
+a:visited {
+  border-bottom: 2px solid #BFEBFD;
+  border-radius: 4px;
+  padding: 4px;
+  margin-left: -4px;
+  color: #222;
+}
+
+a:hover {
+  background-color: #BFEBFD;
+  position: relative;
+}
+
+h3 a:hover::after {
+  content: 'Syllabus link';
+  color: darkred;
+  right: -110px;
+  position: absolute;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+@media (max-width: 1024px) {
+  body {
+    width: 93.75%;
+  }
+}
