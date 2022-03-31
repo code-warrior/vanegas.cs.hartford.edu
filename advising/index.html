@@ -91,7 +91,91 @@ li li:first-of-type {
 
       <li><strong>Perform your own degree audit</strong>. Log in to <a href="https://dw-java-prod-01.hartford.edu/ResponsiveDashboard/login.html" rel="noopener" target="_blank">DegreeWorks</a> or <a href="https://uhart-pssba-001.hartford.edu:8910/PROD/twbkwbis.P_WWWLogin" rel="noopener" target="_blank">Self Service</a> (<code>Student → Academic Records → Degree Works</code>) and perform your own course audit. (The DegreeWorks link may not work, but the Self Service should.) Carefully inspect <em>every</em> aspect of the audit, looking for errors and verifying the entries with what you need for gen ed, elective, and major requirements, as discussed in step 1. <strong>Print a copy of your audit and annotate it neatly in this and the subsequent steps below.</strong></li>
 
-      <li><strong>Identify the gen ed and major courses offered in the coming semester</strong>. Acquire a clear understanding of the courses you need by visiting the <a href="https://www.hartford.edu/about/offices-divisions/office-registrar/registration/schedule-classes.aspx" target="_blank" rel="noopener">Schedule of Classes</a>. Every course you select for registration <em>must</em> fulfill a requirement for a gen ed, your major, your minor, or an elective. The gen ed portion is divided into <b>First-Year Seminar</b>, <b>Foundations of Citizenship</b>, <b>Exploration and Breadth</b>, <b>Foundational Competencies</b>, and <b>University Requirements</b>. (All of this is explained under the <b>General</b> link below.) The other categories relate to your major(s) and/or minor(s).</li>
+      <li><strong>Identify the courses offered in the coming semester</strong>. Search for the classes offered next semester. (See the next paragraph for useful, course search-related links.) Every course you select for registration <em>must</em> fulfill a requirement for a gen ed, your major, your minor, or an elective. The gen ed portion is divided into <b>First-Year Seminar</b>, <b>Foundations of Citizenship</b>, <b>Exploration and Breadth</b>, <b>Foundational Competencies</b>, and <b>University Requirements</b>. (All of this is explained under the <b>General</b> link below.) The other categories relate to your major(s) and/or minor(s).
+        <p>For a general search of all courses, click <a href="https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_CrseSearch" target="_blank" rel="noopener">this link</a> to open the course search page in another tab/window. For courses more specific to your discipline, follow the links below, which you can bookmark for further reference or whose link you can copy from your browser’s address bar — none of which can be done from the course search page natively.</p>
+        <ul>
+          <li><label for="program--cs-dept">Search for</label>
+            <select name="program--cs-dept" id="program--cs-dept">
+              <option value="MWD+" selected>MWD</option>
+              <option value="CS++">CS</option>
+              <option value="CSE+">CSE</option>
+            </select>
+            <label for="season--cs-dept">courses in the</label>
+            <select name="season--cs-dept" id="season--cs-dept">
+              <option value="05">winter</option>
+              <option value="10">spring</option>
+              <option value="20">summer</option>
+              <option value="40" selected>fall</option>
+            </select>
+            <label for="year--cs-dept">semester of</label>
+            <select name="year--cs-dept" id="year--cs-dept">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022" selected>2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select> <a id="search-link--dept-of-cs" href="https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse?sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=202240&sel_ptrm=%25&sel_coll=02&sel_subj=MWD+&sel_subjc=&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes" target="_blank" rel="noopener">Click here <i class="fa fa-external-link" aria-hidden="true"></i></a> (<span class="small-caps"><abbr title="Multimedia Web Design and Development">mwdd</abbr></span>, <span class="small-caps"><abbr title="Computer Science">cs</abbr></span>, <span class="small-caps"><abbr title="Computer Science and Engineering">cse</abbr></span>)
+          </li>
+          <li><label for="season--art-school">Search for “DES” (design) courses in the</label>
+            <select name="season--art-school" id="season--art-school">
+              <option value="05">winter</option>
+              <option value="10">spring</option>
+              <option value="20">summer</option>
+              <option value="40" selected>fall</option>
+            </select>
+            <label for="year--art-school">semester of</label>
+            <select name="year--art-school" id="year--art-school">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022" selected>2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select> <a id="search-link--hartford-art-school" href="https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse?sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=202240&sel_ptrm=%25&sel_coll=01&sel_subjc=DES&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes" target="_blank" rel="noopener">Click here <i class="fa fa-external-link" aria-hidden="true"></i></a> (<span class="small-caps"><abbr title="Multimedia Web Design and Development">mwdd</abbr></span>)
+          </li>
+          <li>
+            <label for="season--communication-dept">Search for “CMM 110” courses in the</label>
+            <select name="season--communication-dept" id="season--communication-dept">
+              <option value="05">winter</option>
+              <option value="10">spring</option>
+              <option value="20">summer</option>
+              <option value="40" selected>fall</option>
+            </select>
+            <label for="year--communication-dept">semester of</label>
+            <select name="year--communication-dept" id="year--communication-dept">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022" selected>2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select> <a id="search-link--dept-of-communication" href="https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse?sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=202240&sel_ptrm=%25&sel_coll=02&sel_subjc=CMM&sel_crse=110&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes" target="_blank" rel="noopener">Click here <i class="fa fa-external-link" aria-hidden="true"></i></a> (<span class="small-caps"><abbr title="Multimedia Web Design and Development">mwdd</abbr></span>)
+          </li>
+          <li>
+            <label for="season--uis">Search for “UIS” courses in the</label>
+            <select name="season--uis" id="season--uis">
+              <option value="05">winter</option>
+              <option value="10">spring</option>
+              <option value="20">summer</option>
+              <option value="40" selected>fall</option>
+            </select>
+            <label for="year--uis">semester of</label>
+            <select name="year--uis" id="year--uis">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022" selected>2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select> <a id="search-link--uis" href="https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse?sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=202240&sel_ptrm=%25&sel_coll=15&sel_subjc=&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes" target="_blank" rel="noopener">Click here <i class="fa fa-external-link" aria-hidden="true"></i></a> (<span class="small-caps"><abbr title="Multimedia Web Design and Development">mwdd</abbr></span>, <span class="small-caps"><abbr title="Computer Science">cs</abbr></span>, <span class="small-caps"><abbr title="Computer Science and Engineering">cse</abbr></span>)
+          </li>
+        </ul>
+      </li>
 
       <li><strong>Create at least two schedules</strong>. Identify <em>multiple</em> courses in your class search in the event of an unanticipated problem that won’t allow you to register for your original choices. Create <em>at least</em> <strong>two</strong> schedules for the upcoming semester registration.</li>
 
