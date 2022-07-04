@@ -9,6 +9,15 @@ window.onload = () => {
     let baseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`;
     let queryStringDelimiter = `?`;
 
+    // This base URL for the undergraduate catalog redirects the user to the most current catalog
+    let baseURL_Catalog = `https://catalog.hartford.edu/preview_program.php`;
+
+    let catalogYears_MWDMajor = [
+        `catoid=26&poid=5863`,  // 2021–2022
+        `catoid=25&poid=5578`,  // 2020–2021
+        `catoid=23&poid=5117`,  // 2019–2020
+        `catoid=21&poid=4519`]; // 2018–2019
+
     let chosenProgram_CSDept = `MWD+`; // May also be CS++, CSE+
     let chosenYear_CSDept = 2022;
     let chosenSeason_CSDept = FALL;
@@ -39,6 +48,18 @@ window.onload = () => {
 
     let season_UIS = document.getElementById(`season--uis`);
     let year_UIS = document.getElementById(`year--uis`);
+
+    let degreeRequirements_MWDD_Link = document.getElementById(`degree-requirements--mwdd--link`);
+    let degreeRequirements_MajorOrMinor = document.getElementById(`degree-requirements--major-or-minor`);
+
+    degreeRequirements_MajorOrMinor.addEventListener(`change`, function () {
+        let majorOrMinor = this.options[this.selectedIndex].value;
+
+        degreeRequirements_MajorOrMinor.setAttribute(`href`, `${baseURL_Catalog}?${catalogYears_MWDMajor[0]}` );
+        alert(degreeRequirements_MajorOrMinor.getAttribute(`href`));
+
+        alert(majorOrMinor);
+    });
 
     /**
      * Listen for option changes associated with the year for courses offered by the
