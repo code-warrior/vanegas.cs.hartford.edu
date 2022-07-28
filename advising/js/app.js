@@ -75,6 +75,11 @@ window.onload = () => {
         `catoid=MINOR&poid=YEAR`  // Minor: 2022–2023
     ];
 
+    /**
+     * 
+     * @param year
+     * @param majorOrMinor
+     */
     let setDegreeRequirementsURL = (year, majorOrMinor) => {
         switch (year) {
             case `2018`:
