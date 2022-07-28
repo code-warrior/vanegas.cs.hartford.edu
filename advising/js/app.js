@@ -13,6 +13,28 @@ window.onload = () => {
         courseSearch__CSDept__ChosenSeason = courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].value,
         courseSearch__CSDept__ChosenYear = courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].value;
 
+    let courseSearch__DesignDept__BaseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`,
+        courseSearch__DesignDept__DropDown__Season = document.getElementById(`course-search--design-dept--drop-down--season`),
+        courseSearch__DesignDept__DropDown__Year = document.getElementById(`course-search--design-dept--drop-down--year`),
+        courseSearch__DesignDept__Link = document.getElementById(`course-search--design-dept--link`),
+        courseSearch__DesignDept__UrlTokens = [
+            `sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=`,
+            `&sel_ptrm=%25&sel_coll=01&sel_subjc=DES&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`
+        ],
+        courseSearch_DesignDept__ChosenSeason = courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].value,
+        courseSearch_DesignDept__ChosenYear = courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].value;
+
+    courseSearch__DesignDept__DropDown__Season.addEventListener(`change`, function () {
+        courseSearch__DesignDept__DropDown__Season = this.options[this.selectedIndex].value;
+
+        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
+    });
+
+    courseSearch__DesignDept__DropDown__Year.addEventListener(`change`, function () {
+        courseSearch__DesignDept__DropDown__Year = this.options[this.selectedIndex].value;
+
+        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
+    });
 
     courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
         courseSearch__CSDept__ChosenProgram = this.options[this.selectedIndex].value;
@@ -70,6 +92,19 @@ window.onload = () => {
         program +
         courseSearch__CSDept__UrlTokens[2]}`);
     };
+
+    /**
+     *
+     * @param season
+     * @param year
+     */
+    let setDesignDeptCourseSearchURL = (season = courseSearch_DesignDept__ChosenSeason, year = courseSearch_DesignDept__ChosenYear) => {
+        courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__DesignDept__BaseURL}?${courseSearch__DesignDept__UrlTokens[0] +
+        year + season + courseSearch__DesignDept__UrlTokens[1]}`);
+    };
+
+    /**
+     *
      * @param year
      * @param majorOrMinor
      */
@@ -163,6 +198,7 @@ window.onload = () => {
     };
 
     setCourseSearchURL();
+    setDesignDeptCourseSearchURL();
     setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
 
     // Listen for changes on the major chosen
