@@ -49,11 +49,9 @@ window.onload = () => {
     let baseURL_Catalog = `https://catalog.hartford.edu/preview_program.php`;
     let electives_MWDD_AcademicYear = document.getElementById(`electives--mwdd--academic-year`);
     let electives_MWDD_AcademicYear_Link = document.getElementById(`electives--mwdd--academic-year--link`);
-
     let degreeRequirements_MWDD_MajorOrMinor = document.getElementById(`degree-reqs--mwdd--major-or-minor`);
     let degreeRequirements_MWDD_AcademicYear = document.getElementById(`degree-reqs--mwdd--academic-year`);
     let degreeRequirements_MWDD_Link = document.getElementById(`degree-reqs--mwdd--link`);
-
     let chosenMajorMinor =
         degreeRequirements_MWDD_MajorOrMinor.options[degreeRequirements_MWDD_MajorOrMinor.selectedIndex].value;
     let chosenYear =
