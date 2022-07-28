@@ -13,20 +13,6 @@ window.onload = () => {
         courseSearch__CSDept__ChosenSeason = courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].value,
         courseSearch__CSDept__ChosenYear = courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].value;
 
-    /**
-     *
-     * @param program
-     * @param season
-     * @param year
-     */
-    let setCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
-        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__CSDept__BaseURL}?${courseSearch__CSDept__UrlTokens[0] +
-        year +
-        season +
-        courseSearch__CSDept__UrlTokens[1] +
-        program +
-        courseSearch__CSDept__UrlTokens[2]}`);
-    };
 
     courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
         courseSearch__CSDept__ChosenProgram = this.options[this.selectedIndex].value;
@@ -71,7 +57,19 @@ window.onload = () => {
     ];
 
     /**
-     * 
+     *
+     * @param program
+     * @param season
+     * @param year
+     */
+    let setCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
+        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__CSDept__BaseURL}?${courseSearch__CSDept__UrlTokens[0] +
+        year +
+        season +
+        courseSearch__CSDept__UrlTokens[1] +
+        program +
+        courseSearch__CSDept__UrlTokens[2]}`);
+    };
      * @param year
      * @param majorOrMinor
      */
