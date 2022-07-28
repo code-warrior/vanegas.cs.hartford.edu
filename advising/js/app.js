@@ -50,7 +50,6 @@ window.onload = () => {
     let electives_MWDD_AcademicYear = document.getElementById(`electives--mwdd--academic-year`);
     let electives_MWDD_AcademicYear_Link = document.getElementById(`electives--mwdd--academic-year--link`);
 
-    // Reference the drop down menu for “major” or “minor”
     let degreeRequirements_MWDD_MajorOrMinor = document.getElementById(`degree-reqs--mwdd--major-or-minor`);
     let degreeRequirements_MWDD_AcademicYear = document.getElementById(`degree-reqs--mwdd--academic-year`);
     let degreeRequirements_MWDD_Link = document.getElementById(`degree-reqs--mwdd--link`);
@@ -167,7 +166,6 @@ window.onload = () => {
         }
     };
 
-    // Prepare default URL
     setCourseSearchURL();
     setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
 
