@@ -14,14 +14,14 @@ window.onload = () => {
         degreeRequirements_MWDD_AcademicYear.options[degreeRequirements_MWDD_AcademicYear.selectedIndex].value;
 
     let degreeRequirements_MWDD_URL_Variables = [
-        `catoid=21&poid=4519`, // Major: 2018–2019
-        `catoid=21&poid=4720`, // Minor: 2018–2019
-        `catoid=23&poid=4916`, // Major: 2019–2020
-        `catoid=23&poid=5117`, // Minor: 2019–2020
-        `catoid=25&poid=5578`, // Major: 2020–2021
-        `catoid=25&poid=5779`, // Minor: 2020–2021
-        `catoid=26&poid=5863`, // Major; 2021–2022
-        `catoid=26&poid=6064`, // Minor: 2021–2022
+        `catoid=21&poid=4519`,    // Major: 2018–2019
+        `catoid=21&poid=4720`,    // Minor: 2018–2019
+        `catoid=23&poid=4916`,    // Major: 2019–2020
+        `catoid=23&poid=5117`,    // Minor: 2019–2020
+        `catoid=25&poid=5578`,    // Major: 2020–2021
+        `catoid=25&poid=5779`,    // Minor: 2020–2021
+        `catoid=26&poid=5863`,    // Major; 2021–2022
+        `catoid=26&poid=6064`,    // Minor: 2021–2022
         `catoid=MAJOR&poid=YEAR`, // Major; 2022–2023
         `catoid=MINOR&poid=YEAR`  // Minor: 2022–2023
     ];
