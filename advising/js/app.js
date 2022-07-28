@@ -28,8 +28,6 @@ window.onload = () => {
         courseSearch__CSDept__UrlTokens[2]}`);
     };
 
-    setCourseSearchURL();
-
     courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
         courseSearch__CSDept__ChosenProgram = this.options[this.selectedIndex].value;
 
@@ -170,6 +168,7 @@ window.onload = () => {
     };
 
     // Prepare default URL
+    setCourseSearchURL();
     setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
 
     // Listen for changes on the major chosen
