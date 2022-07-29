@@ -1,6 +1,6 @@
 window.onload = () => {
-    let courseSearch__CSDept__BaseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`,
-        courseSearch__CSDept__DropDown__Program = document.getElementById(`course-search--cs-dept--drop-down--program`),
+    let courseSearch__BaseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`;
+    let courseSearch__CSDept__DropDown__Program = document.getElementById(`course-search--cs-dept--drop-down--program`),
         courseSearch__CSDept__DropDown__Season = document.getElementById(`course-search--cs-dept--drop-down--season`),
         courseSearch__CSDept__DropDown__Year = document.getElementById(`course-search--cs-dept--drop-down--year`),
         courseSearch__CSDept__Link = document.getElementById(`course-search--cs-dept--drop-down--link`),
@@ -13,8 +13,7 @@ window.onload = () => {
         courseSearch__CSDept__ChosenSeason = courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].value,
         courseSearch__CSDept__ChosenYear = courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].value;
 
-    let courseSearch__DesignDept__BaseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`,
-        courseSearch__DesignDept__DropDown__Season = document.getElementById(`course-search--design-dept--drop-down--season`),
+    let courseSearch__DesignDept__DropDown__Season = document.getElementById(`course-search--design-dept--drop-down--season`),
         courseSearch__DesignDept__DropDown__Year = document.getElementById(`course-search--design-dept--drop-down--year`),
         courseSearch__DesignDept__Link = document.getElementById(`course-search--design-dept--link`),
         courseSearch__DesignDept__UrlTokens = [
@@ -85,7 +84,7 @@ window.onload = () => {
      * @param year
      */
     let setCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
-        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__CSDept__BaseURL}?${courseSearch__CSDept__UrlTokens[0] +
+        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${courseSearch__CSDept__UrlTokens[0] +
         year +
         season +
         courseSearch__CSDept__UrlTokens[1] +
@@ -99,7 +98,7 @@ window.onload = () => {
      * @param year
      */
     let setDesignDeptCourseSearchURL = (season = courseSearch_DesignDept__ChosenSeason, year = courseSearch_DesignDept__ChosenYear) => {
-        courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__DesignDept__BaseURL}?${courseSearch__DesignDept__UrlTokens[0] +
+        courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${courseSearch__DesignDept__UrlTokens[0] +
         year + season + courseSearch__DesignDept__UrlTokens[1]}`);
     };
 
