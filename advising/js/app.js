@@ -25,8 +25,8 @@ window.onload = () => {
     let courseSearch__DesignDept__DropDown__Season = document.getElementById(`course-search--design-dept--drop-down--season`),
         courseSearch__DesignDept__DropDown__Year = document.getElementById(`course-search--design-dept--drop-down--year`),
         courseSearch__DesignDept__Link = document.getElementById(`course-search--design-dept--link`),
-        courseSearch_DesignDept__ChosenSeason = courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].value,
-        courseSearch_DesignDept__ChosenYear = courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].value;
+        courseSearch__DesignDept__ChosenSeason = courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].value,
+        courseSearch__DesignDept__ChosenYear = courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].value;
 
 
     /**
@@ -45,7 +45,7 @@ window.onload = () => {
      * @param season
      * @param year
      */
-    let setDesignDeptCourseSearchURL = (season = courseSearch_DesignDept__ChosenSeason, year = courseSearch_DesignDept__ChosenYear) => {
+    let setDesignDeptCourseSearchURL = (season = courseSearch__DesignDept__ChosenSeason, year = courseSearch__DesignDept__ChosenYear) => {
         courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
         year + season + URLTokens[3]}`);
     };
