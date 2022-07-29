@@ -1,14 +1,23 @@
 window.onload = () => {
+    let URLTokens = [
+        // Partial token common to all course search URLs
+        `sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=`,
+        // Only used by the CS Dept course search URL
+        `&sel_ptrm=%25&sel_coll=02&sel_subj=`,
+        // Only used by the CS Dept course search URL
+        `&sel_subjc=&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`,
+        // Only used by the Design Dept course search URL
+        `&sel_ptrm=%25&sel_coll=01&sel_subjc=DES&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`,
+        // Only used by the CMM 110 course search URL
+        `&sel_ptrm=%25&sel_coll=02&sel_subjc=CMM&sel_crse=110&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`,
+        // Only used by the UIS course search URL
+        `&sel_ptrm=%25&sel_coll=15&sel_subjc=&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`
+    ];
     let courseSearch__BaseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`;
     let courseSearch__CSDept__DropDown__Program = document.getElementById(`course-search--cs-dept--drop-down--program`),
         courseSearch__CSDept__DropDown__Season = document.getElementById(`course-search--cs-dept--drop-down--season`),
         courseSearch__CSDept__DropDown__Year = document.getElementById(`course-search--cs-dept--drop-down--year`),
         courseSearch__CSDept__Link = document.getElementById(`course-search--cs-dept--drop-down--link`),
-        courseSearch__CSDept__UrlTokens = [
-            `sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=`,
-            `&sel_ptrm=%25&sel_coll=02&sel_subj=`,
-            `&sel_subjc=&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`
-        ],
         courseSearch__CSDept__ChosenProgram = courseSearch__CSDept__DropDown__Program.options[courseSearch__CSDept__DropDown__Program.selectedIndex].value,
         courseSearch__CSDept__ChosenSeason = courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].value,
         courseSearch__CSDept__ChosenYear = courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].value;
@@ -16,10 +25,6 @@ window.onload = () => {
     let courseSearch__DesignDept__DropDown__Season = document.getElementById(`course-search--design-dept--drop-down--season`),
         courseSearch__DesignDept__DropDown__Year = document.getElementById(`course-search--design-dept--drop-down--year`),
         courseSearch__DesignDept__Link = document.getElementById(`course-search--design-dept--link`),
-        courseSearch__DesignDept__UrlTokens = [
-            `sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=`,
-            `&sel_ptrm=%25&sel_coll=01&sel_subjc=DES&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`
-        ],
         courseSearch_DesignDept__ChosenSeason = courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].value,
         courseSearch_DesignDept__ChosenYear = courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].value;
 
@@ -84,12 +89,12 @@ window.onload = () => {
      * @param year
      */
     let setCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
-        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${courseSearch__CSDept__UrlTokens[0] +
+        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
         year +
         season +
-        courseSearch__CSDept__UrlTokens[1] +
+        URLTokens[1] +
         program +
-        courseSearch__CSDept__UrlTokens[2]}`);
+        URLTokens[2]}`);
     };
 
     /**
@@ -98,8 +103,8 @@ window.onload = () => {
      * @param year
      */
     let setDesignDeptCourseSearchURL = (season = courseSearch_DesignDept__ChosenSeason, year = courseSearch_DesignDept__ChosenYear) => {
-        courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${courseSearch__DesignDept__UrlTokens[0] +
-        year + season + courseSearch__DesignDept__UrlTokens[1]}`);
+        courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
+        year + season + URLTokens[3]}`);
     };
 
     /**
