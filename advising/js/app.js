@@ -28,59 +28,6 @@ window.onload = () => {
         courseSearch_DesignDept__ChosenSeason = courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].value,
         courseSearch_DesignDept__ChosenYear = courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].value;
 
-    courseSearch__DesignDept__DropDown__Season.addEventListener(`change`, function () {
-        courseSearch__DesignDept__DropDown__Season = this.options[this.selectedIndex].value;
-
-        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
-    });
-
-    courseSearch__DesignDept__DropDown__Year.addEventListener(`change`, function () {
-        courseSearch__DesignDept__DropDown__Year = this.options[this.selectedIndex].value;
-
-        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
-    });
-
-    courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
-        courseSearch__CSDept__ChosenProgram = this.options[this.selectedIndex].value;
-
-        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
-    });
-
-    courseSearch__CSDept__DropDown__Season.addEventListener(`change`, function () {
-        courseSearch__CSDept__ChosenSeason = this.options[this.selectedIndex].value;
-
-        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
-    });
-
-    courseSearch__CSDept__DropDown__Year.addEventListener(`change`, function () {
-        courseSearch__CSDept__ChosenYear = this.options[this.selectedIndex].value;
-
-        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
-    });
-
-    let baseURL_Catalog = `https://catalog.hartford.edu/preview_program.php`;
-    let electives_MWDD_AcademicYear = document.getElementById(`electives--mwdd--academic-year`);
-    let electives_MWDD_AcademicYear_Link = document.getElementById(`electives--mwdd--academic-year--link`);
-    let degreeRequirements_MWDD_MajorOrMinor = document.getElementById(`degree-reqs--mwdd--major-or-minor`);
-    let degreeRequirements_MWDD_AcademicYear = document.getElementById(`degree-reqs--mwdd--academic-year`);
-    let degreeRequirements_MWDD_Link = document.getElementById(`degree-reqs--mwdd--link`);
-    let chosenMajorMinor =
-        degreeRequirements_MWDD_MajorOrMinor.options[degreeRequirements_MWDD_MajorOrMinor.selectedIndex].value;
-    let chosenYear =
-        degreeRequirements_MWDD_AcademicYear.options[degreeRequirements_MWDD_AcademicYear.selectedIndex].value;
-
-    let degreeRequirements_MWDD_URL_Variables = [
-        `catoid=21&poid=4519`,    // Major: 2018–2019
-        `catoid=21&poid=4720`,    // Minor: 2018–2019
-        `catoid=23&poid=4916`,    // Major: 2019–2020
-        `catoid=23&poid=5117`,    // Minor: 2019–2020
-        `catoid=25&poid=5578`,    // Major: 2020–2021
-        `catoid=25&poid=5779`,    // Minor: 2020–2021
-        `catoid=26&poid=5863`,    // Major; 2021–2022
-        `catoid=26&poid=6064`,    // Minor: 2021–2022
-        `catoid=MAJOR&poid=YEAR`, // Major; 2022–2023
-        `catoid=MINOR&poid=YEAR`  // Minor: 2022–2023
-    ];
 
     /**
      *
@@ -196,6 +143,60 @@ window.onload = () => {
                 break;
         }
     };
+
+    courseSearch__DesignDept__DropDown__Season.addEventListener(`change`, function () {
+        courseSearch__DesignDept__DropDown__Season = this.options[this.selectedIndex].value;
+
+        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
+    });
+
+    courseSearch__DesignDept__DropDown__Year.addEventListener(`change`, function () {
+        courseSearch__DesignDept__DropDown__Year = this.options[this.selectedIndex].value;
+
+        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
+    });
+
+    courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
+        courseSearch__CSDept__ChosenProgram = this.options[this.selectedIndex].value;
+
+        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
+    });
+
+    courseSearch__CSDept__DropDown__Season.addEventListener(`change`, function () {
+        courseSearch__CSDept__ChosenSeason = this.options[this.selectedIndex].value;
+
+        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
+    });
+
+    courseSearch__CSDept__DropDown__Year.addEventListener(`change`, function () {
+        courseSearch__CSDept__ChosenYear = this.options[this.selectedIndex].value;
+
+        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
+    });
+
+    let baseURL_Catalog = `https://catalog.hartford.edu/preview_program.php`;
+    let electives_MWDD_AcademicYear = document.getElementById(`electives--mwdd--academic-year`);
+    let electives_MWDD_AcademicYear_Link = document.getElementById(`electives--mwdd--academic-year--link`);
+    let degreeRequirements_MWDD_MajorOrMinor = document.getElementById(`degree-reqs--mwdd--major-or-minor`);
+    let degreeRequirements_MWDD_AcademicYear = document.getElementById(`degree-reqs--mwdd--academic-year`);
+    let degreeRequirements_MWDD_Link = document.getElementById(`degree-reqs--mwdd--link`);
+    let chosenMajorMinor =
+        degreeRequirements_MWDD_MajorOrMinor.options[degreeRequirements_MWDD_MajorOrMinor.selectedIndex].value;
+    let chosenYear =
+        degreeRequirements_MWDD_AcademicYear.options[degreeRequirements_MWDD_AcademicYear.selectedIndex].value;
+
+    let degreeRequirements_MWDD_URL_Variables = [
+        `catoid=21&poid=4519`,    // Major: 2018–2019
+        `catoid=21&poid=4720`,    // Minor: 2018–2019
+        `catoid=23&poid=4916`,    // Major: 2019–2020
+        `catoid=23&poid=5117`,    // Minor: 2019–2020
+        `catoid=25&poid=5578`,    // Major: 2020–2021
+        `catoid=25&poid=5779`,    // Minor: 2020–2021
+        `catoid=26&poid=5863`,    // Major; 2021–2022
+        `catoid=26&poid=6064`,    // Minor: 2021–2022
+        `catoid=MAJOR&poid=YEAR`, // Major; 2022–2023
+        `catoid=MINOR&poid=YEAR`  // Minor: 2022–2023
+    ];
 
     setCourseSearchURL();
     setDesignDeptCourseSearchURL();
