@@ -1,5 +1,6 @@
 window.onload = () => {
-    let URLTokens = [
+    let courseSearch__BaseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`,
+        URLTokens = [
         // Partial token common to all course search URLs
         `sel_subj=dummy&sel_day=dummy&sel_schd=dummy&sel_camp=dummy&sel_sess=dummy&sel_ptrm=dummy&sel_instr=dummy&term=`,
         // Only used by the CS Dept course search URL
@@ -13,7 +14,7 @@ window.onload = () => {
         // Only used by the UIS course search URL
         `&sel_ptrm=%25&sel_coll=15&sel_subjc=&sel_crse=&sel_levl=%25&sel_crn=&sel_open=%25&sel_title=&begin_hh=0&begin_mi=0&begin_ap=a&end_hh=0&end_mi=0&end_ap=a&sel_dl=N&submit_btn=Get+Classes`
     ];
-    let courseSearch__BaseURL = `https://uhart-pssba-001.hartford.edu/PROD/bzskfcls.P_GetCrse`;
+
     let courseSearch__CSDept__DropDown__Program = document.getElementById(`course-search--cs-dept--drop-down--program`),
         courseSearch__CSDept__DropDown__Season = document.getElementById(`course-search--cs-dept--drop-down--season`),
         courseSearch__CSDept__DropDown__Year = document.getElementById(`course-search--cs-dept--drop-down--year`),
