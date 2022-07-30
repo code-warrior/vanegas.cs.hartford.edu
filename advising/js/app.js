@@ -36,9 +36,7 @@ window.onload = () => {
 
     /**
      *
-     * @param program
-     * @param season
-     * @param year
+     * INCORRECTLY NAMED
      */
     let setCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
         courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
