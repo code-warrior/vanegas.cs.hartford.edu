@@ -25,9 +25,7 @@ window.onload = () => {
 
     let courseSearch__DesignDept__DropDown__Season = document.getElementById(`course-search--design-dept--drop-down--season`),
         courseSearch__DesignDept__DropDown__Year = document.getElementById(`course-search--design-dept--drop-down--year`),
-        courseSearch__DesignDept__Link = document.getElementById(`course-search--design-dept--link`),
-        courseSearch__DesignDept__ChosenSeason = courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].value,
-        courseSearch__DesignDept__ChosenYear = courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].value;
+        courseSearch__DesignDept__Link = document.getElementById(`course-search--design-dept--link`);
 
     let courseSearch__CommDept__DropDown__Season = document.getElementById(`course-search--comm-dept--drop-down--season`),
         courseSearch__CommDept__DropDown__Year = document.getElementById(`course-search--comm-dept--drop-down--year`),
@@ -51,9 +49,8 @@ window.onload = () => {
      * @param season
      * @param year
      */
-    let setDesignDeptCourseSearchURL = (season = courseSearch__DesignDept__ChosenSeason, year = courseSearch__DesignDept__ChosenYear) => {
-        courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
-        year + season + URLTokens[3]}`);
+    let setDesignDeptCourseSearchURL = (year, season) => {
+        courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0]}${year}${season}${URLTokens[3]}`);
     };
 
     /**
@@ -172,16 +169,16 @@ window.onload = () => {
         setCommDeptCourseSearchURL(courseSearch__CommDept__DropDown__Season, courseSearch__CommDept__DropDown__Year);
     });
 
-    courseSearch__DesignDept__DropDown__Season.addEventListener(`change`, function () {
-        courseSearch__DesignDept__DropDown__Season = this.options[this.selectedIndex].value;
-
-        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
+    courseSearch__DesignDept__DropDown__Season.addEventListener(`change`, (event) => {
+        setDesignDeptCourseSearchURL(
+            courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].getAttribute(`value`),
+            event.target.value);
     });
 
-    courseSearch__DesignDept__DropDown__Year.addEventListener(`change`, function () {
-        courseSearch__DesignDept__DropDown__Year = this.options[this.selectedIndex].value;
-
-        setDesignDeptCourseSearchURL(courseSearch__DesignDept__DropDown__Season, courseSearch__DesignDept__DropDown__Year);
+    courseSearch__DesignDept__DropDown__Year.addEventListener(`change`, (event) => {
+        setDesignDeptCourseSearchURL(
+            event.target.value,
+            courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].getAttribute(`value`));
     });
 
     courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
@@ -227,7 +224,10 @@ window.onload = () => {
     ];
 
     setCSDeptCourseSearchURL();
-    setDesignDeptCourseSearchURL();
+    setDesignDeptCourseSearchURL(
+        courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].getAttribute(`value`),
+        courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].getAttribute(`value`)
+    );
     setCommDeptCourseSearchURL();
     setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
 
