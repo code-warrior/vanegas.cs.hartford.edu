@@ -39,7 +39,7 @@ window.onload = () => {
      *
      * INCORRECTLY NAMED
      */
-    let setCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
+    let setCSDeptCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
         courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
         year + season + URLTokens[1] + program + URLTokens[2]}`);
     };
@@ -159,7 +159,6 @@ window.onload = () => {
         }
     };
 
-
     courseSearch__CommDept__DropDown__Season.addEventListener(`change`, function () {
         courseSearch__CommDept__DropDown__Season = this.options[this.selectedIndex].value;
 
@@ -187,19 +186,19 @@ window.onload = () => {
     courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
         courseSearch__CSDept__ChosenProgram = this.options[this.selectedIndex].value;
 
-        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
+        setCSDeptCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
     });
 
     courseSearch__CSDept__DropDown__Season.addEventListener(`change`, function () {
         courseSearch__CSDept__ChosenSeason = this.options[this.selectedIndex].value;
 
-        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
+        setCSDeptCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
     });
 
     courseSearch__CSDept__DropDown__Year.addEventListener(`change`, function () {
         courseSearch__CSDept__ChosenYear = this.options[this.selectedIndex].value;
 
-        setCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
+        setCSDeptCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
     });
 
     let baseURL_Catalog = `https://catalog.hartford.edu/preview_program.php`;
@@ -226,7 +225,7 @@ window.onload = () => {
         `catoid=MINOR&poid=YEAR`  // Minor: 2022–2023
     ];
 
-    setCourseSearchURL();
+    setCSDeptCourseSearchURL();
     setDesignDeptCourseSearchURL();
     setCommDeptCourseSearchURL();
     setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
