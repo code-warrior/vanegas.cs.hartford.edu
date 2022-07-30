@@ -38,8 +38,8 @@ window.onload = () => {
     /**
      *
      * @param program
-     * @param season
      * @param year
+     * @param season
      */
     let setCSDeptCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
         courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
@@ -48,8 +48,8 @@ window.onload = () => {
 
     /**
      *
-     * @param season
      * @param year
+     * @param season
      */
     let setDesignDeptCourseSearchURL = (year, season) => {
         courseSearch__DesignDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0]}${year}${season}${URLTokens[3]}`);
@@ -57,8 +57,8 @@ window.onload = () => {
 
     /**
      *
-     * @param season
      * @param year
+     * @param season
      */
     let setCommDeptCourseSearchURL = (year, season) => {
         courseSearch__CommDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0]}${year}${season}${URLTokens[4]}`);
