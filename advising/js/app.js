@@ -29,9 +29,7 @@ window.onload = () => {
 
     let courseSearch__CommDept__DropDown__Season = document.getElementById(`course-search--comm-dept--drop-down--season`),
         courseSearch__CommDept__DropDown__Year = document.getElementById(`course-search--comm-dept--drop-down--year`),
-        courseSearch__CommDept__Link = document.getElementById(`course-search--comm-dept--link`),
-        courseSearch__CommDept__ChosenSeason = courseSearch__CommDept__DropDown__Season.options[courseSearch__CommDept__DropDown__Season.selectedIndex].value,
-        courseSearch__CommDept__ChosenYear = courseSearch__CommDept__DropDown__Year.options[courseSearch__CommDept__DropDown__Year.selectedIndex].value;
+        courseSearch__CommDept__Link = document.getElementById(`course-search--comm-dept--link`);
 
     /**
      *
@@ -58,9 +56,8 @@ window.onload = () => {
      * @param season
      * @param year
      */
-    let setCommDeptCourseSearchURL = (season = courseSearch__CommDept__ChosenSeason, year = courseSearch__CommDept__ChosenYear) => {
-        courseSearch__CommDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
-        year + season + URLTokens[4]}`);
+    let setCommDeptCourseSearchURL = (year, season) => {
+        courseSearch__CommDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0]}${year}${season}${URLTokens[4]}`);
     };
 
     /**
@@ -157,28 +154,32 @@ window.onload = () => {
         }
     };
 
-    courseSearch__CommDept__DropDown__Season.addEventListener(`change`, function () {
-        courseSearch__CommDept__DropDown__Season = this.options[this.selectedIndex].value;
-
-        setCommDeptCourseSearchURL(courseSearch__CommDept__DropDown__Season, courseSearch__CommDept__DropDown__Year);
-    });
-
-    courseSearch__CommDept__DropDown__Year.addEventListener(`change`, function () {
-        courseSearch__CommDept__DropDown__Year = this.options[this.selectedIndex].value;
-
-        setCommDeptCourseSearchURL(courseSearch__CommDept__DropDown__Season, courseSearch__CommDept__DropDown__Year);
-    });
-
     courseSearch__DesignDept__DropDown__Season.addEventListener(`change`, (event) => {
         setDesignDeptCourseSearchURL(
             courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].getAttribute(`value`),
-            event.target.value);
+            event.target.value
+        );
     });
 
     courseSearch__DesignDept__DropDown__Year.addEventListener(`change`, (event) => {
         setDesignDeptCourseSearchURL(
             event.target.value,
-            courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].getAttribute(`value`));
+            courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].getAttribute(`value`)
+        );
+    });
+
+    courseSearch__CommDept__DropDown__Year.addEventListener(`change`, (event) => {
+        setCommDeptCourseSearchURL(
+            event.target.value,
+            courseSearch__CommDept__DropDown__Season.options[courseSearch__CommDept__DropDown__Season.selectedIndex].getAttribute(`value`)
+        );
+    });
+
+    courseSearch__CommDept__DropDown__Season.addEventListener(`change`, (event) => {
+        setCommDeptCourseSearchURL(
+            courseSearch__CommDept__DropDown__Year.options[courseSearch__CommDept__DropDown__Year.selectedIndex].getAttribute(`value`),
+            event.target.value
+        );
     });
 
     courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
@@ -228,7 +229,10 @@ window.onload = () => {
         courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].getAttribute(`value`),
         courseSearch__DesignDept__DropDown__Season.options[courseSearch__DesignDept__DropDown__Season.selectedIndex].getAttribute(`value`)
     );
-    setCommDeptCourseSearchURL();
+    setCommDeptCourseSearchURL(
+        courseSearch__CommDept__DropDown__Year.options[courseSearch__CommDept__DropDown__Year.selectedIndex].getAttribute(`value`),
+        courseSearch__CommDept__DropDown__Season.options[courseSearch__CommDept__DropDown__Season.selectedIndex].getAttribute(`value`)
+    );
     setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
 
     // Listen for changes on the major chosen
