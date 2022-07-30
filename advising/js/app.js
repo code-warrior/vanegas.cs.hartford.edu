@@ -18,10 +18,7 @@ window.onload = () => {
     let courseSearch__CSDept__DropDown__Program = document.getElementById(`course-search--cs-dept--drop-down--program`),
         courseSearch__CSDept__DropDown__Season = document.getElementById(`course-search--cs-dept--drop-down--season`),
         courseSearch__CSDept__DropDown__Year = document.getElementById(`course-search--cs-dept--drop-down--year`),
-        courseSearch__CSDept__Link = document.getElementById(`course-search--cs-dept--drop-down--link`),
-        courseSearch__CSDept__ChosenProgram = courseSearch__CSDept__DropDown__Program.options[courseSearch__CSDept__DropDown__Program.selectedIndex].value,
-        courseSearch__CSDept__ChosenSeason = courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].value,
-        courseSearch__CSDept__ChosenYear = courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].value;
+        courseSearch__CSDept__Link = document.getElementById(`course-search--cs-dept--drop-down--link`);
 
     let courseSearch__DesignDept__DropDown__Season = document.getElementById(`course-search--design-dept--drop-down--season`),
         courseSearch__DesignDept__DropDown__Year = document.getElementById(`course-search--design-dept--drop-down--year`),
@@ -41,9 +38,8 @@ window.onload = () => {
      * @param year
      * @param season
      */
-    let setCSDeptCourseSearchURL = (program = courseSearch__CSDept__ChosenProgram, season = courseSearch__CSDept__ChosenSeason, year = courseSearch__CSDept__ChosenYear) => {
-        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0] +
-        year + season + URLTokens[1] + program + URLTokens[2]}`);
+    let setCSDeptCourseSearchURL = (program, year, season) => {
+        courseSearch__CSDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0]}${year}${season}${URLTokens[1]}${program}${URLTokens[2]}`);
     };
 
     /**
@@ -70,8 +66,7 @@ window.onload = () => {
      * @param season
      */
     let setUISDeptCourseSearchURL = (year, season) => {
-        courseSearch__UISDept__Link.setAttribute(`href`,
-            `${courseSearch__BaseURL}?${URLTokens[0]}${year}${season}${URLTokens[5]}`);
+        courseSearch__UISDept__Link.setAttribute(`href`, `${courseSearch__BaseURL}?${URLTokens[0]}${year}${season}${URLTokens[5]}`);
     };
 
     /**
@@ -168,6 +163,30 @@ window.onload = () => {
         }
     };
 
+    courseSearch__CSDept__DropDown__Program.addEventListener(`change`, (event) => {
+        setCSDeptCourseSearchURL(
+            event.target.value,
+            courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].getAttribute(`value`),
+            courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].getAttribute(`value`)
+        );
+    });
+
+    courseSearch__CSDept__DropDown__Year.addEventListener(`change`, (event) => {
+        setCSDeptCourseSearchURL(
+            courseSearch__CSDept__DropDown__Program.options[courseSearch__CSDept__DropDown__Program.selectedIndex].getAttribute(`value`),
+            event.target.value,
+            courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].getAttribute(`value`)
+        );
+    });
+
+    courseSearch__CSDept__DropDown__Season.addEventListener(`change`, (event) => {
+        setCSDeptCourseSearchURL(
+            courseSearch__CSDept__DropDown__Program.options[courseSearch__CSDept__DropDown__Program.selectedIndex].getAttribute(`value`),
+            courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].getAttribute(`value`),
+            event.target.value
+        );
+    });
+
     courseSearch__DesignDept__DropDown__Season.addEventListener(`change`, (event) => {
         setDesignDeptCourseSearchURL(
             courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].getAttribute(`value`),
@@ -204,24 +223,6 @@ window.onload = () => {
         setUISDeptCourseSearchURL(event.target.value, courseSearch__UISDept__DropDown__Season.options[courseSearch__UISDept__DropDown__Season.selectedIndex].getAttribute(`value`));
     });
 
-    courseSearch__CSDept__DropDown__Program.addEventListener(`change`, function () {
-        courseSearch__CSDept__ChosenProgram = this.options[this.selectedIndex].value;
-
-        setCSDeptCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
-    });
-
-    courseSearch__CSDept__DropDown__Season.addEventListener(`change`, function () {
-        courseSearch__CSDept__ChosenSeason = this.options[this.selectedIndex].value;
-
-        setCSDeptCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
-    });
-
-    courseSearch__CSDept__DropDown__Year.addEventListener(`change`, function () {
-        courseSearch__CSDept__ChosenYear = this.options[this.selectedIndex].value;
-
-        setCSDeptCourseSearchURL(courseSearch__CSDept__ChosenProgram, courseSearch__CSDept__ChosenSeason, courseSearch__CSDept__ChosenYear);
-    });
-
     let baseURL_Catalog = `https://catalog.hartford.edu/preview_program.php`;
     let electives_MWDD_AcademicYear = document.getElementById(`electives--mwdd--academic-year`);
     let electives_MWDD_AcademicYear_Link = document.getElementById(`electives--mwdd--academic-year--link`);
@@ -246,7 +247,11 @@ window.onload = () => {
         `catoid=MINOR&poid=YEAR`  // Minor: 2022–2023
     ];
 
-    setCSDeptCourseSearchURL();
+    setCSDeptCourseSearchURL(
+        courseSearch__CSDept__DropDown__Program.options[courseSearch__CSDept__DropDown__Program.selectedIndex].getAttribute(`value`),
+        courseSearch__CSDept__DropDown__Year.options[courseSearch__CSDept__DropDown__Year.selectedIndex].getAttribute(`value`),
+        courseSearch__CSDept__DropDown__Season.options[courseSearch__CSDept__DropDown__Season.selectedIndex].getAttribute(`value`)
+    );
 
     setDesignDeptCourseSearchURL(
         courseSearch__DesignDept__DropDown__Year.options[courseSearch__DesignDept__DropDown__Year.selectedIndex].getAttribute(`value`),
