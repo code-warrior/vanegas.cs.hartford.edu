@@ -32,6 +32,9 @@ window.onload = () => {
         courseSearch__UISDept__DropDown__Year = document.getElementById(`course-search--uis-dept--drop-down--year`),
         courseSearch__UISDept__Link = document.getElementById(`course-search--uis-dept--link`);
 
+    let HCIDDidntExistMessage = `The HCID program did not exist in academic year`;
+    let MWDDoesntExistMessage = `As of academic year 2022–2023, the MWD program was renamed HCID.`;
+
     /**
      *
      * @param program
@@ -74,18 +77,26 @@ window.onload = () => {
      * @param year
      * @param majorOrMinor
      */
-    let setDegreeRequirementsURL = (year, majorOrMinor) => {
+    let setDegreeRequirementsURL = (year, majorOrMinor, program = null) => {
         switch (year) {
             case `2018`:
                 if (`major` === majorOrMinor) {
-                    degreeRequirements_MWDD_Link.setAttribute(
-                        `href`,
-                        `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[0]}`);
-                } else {
-                    if (`minor` === majorOrMinor) {
+                    if (`MWD+` === program) {
                         degreeRequirements_MWDD_Link.setAttribute(
                             `href`,
-                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[1]}`);
+                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[0]}`);
+                    } else {
+                        alert(`${HCIDDidntExistMessage} 2018–2019.`);
+                    }
+                } else {
+                    if (`minor` === majorOrMinor) {
+                        if (`MWD+` === program) {
+                            degreeRequirements_MWDD_Link.setAttribute(
+                                `href`,
+                                `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[1]}`);
+                        } else {
+                            alert(`${HCIDDidntExistMessage} 2018–2019.`);
+                        }
                     } else {
                         alert(`Invalid major or minor associated with ${year}`);
                     }
@@ -95,14 +106,22 @@ window.onload = () => {
 
             case `2019`:
                 if (`major` === majorOrMinor) {
-                    degreeRequirements_MWDD_Link.setAttribute(
-                        `href`,
-                        `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[2]}`);
-                } else {
-                    if (`minor` === majorOrMinor) {
+                    if (`MWD+` === program) {
                         degreeRequirements_MWDD_Link.setAttribute(
                             `href`,
-                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[3]}`);
+                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[2]}`);
+                    } else {
+                        alert(`${HCIDDidntExistMessage} 2019–2020.`);
+                    }
+                } else {
+                    if (`minor` === majorOrMinor) {
+                        if (`MWD+` === program) {
+                            degreeRequirements_MWDD_Link.setAttribute(
+                                `href`,
+                                `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[3]}`);
+                        } else {
+                            alert(`${HCIDDidntExistMessage} 2019–2020.`);
+                        }
                     } else {
                         alert(`Invalid major or minor associated with ${year}`);
                     }
@@ -112,14 +131,22 @@ window.onload = () => {
 
             case `2020`:
                 if (`major` === majorOrMinor) {
-                    degreeRequirements_MWDD_Link.setAttribute(
-                        `href`,
-                        `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[4]}`);
-                } else {
-                    if (`minor` === majorOrMinor) {
+                    if (`MWD+` === program) {
                         degreeRequirements_MWDD_Link.setAttribute(
                             `href`,
-                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[5]}`);
+                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[4]}`);
+                    } else {
+                        alert(`${HCIDDidntExistMessage} 2020–2021.`);
+                    }
+                } else {
+                    if (`minor` === majorOrMinor) {
+                        if (`MWD+` === program) {
+                            degreeRequirements_MWDD_Link.setAttribute(
+                                `href`,
+                                `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[5]}`);
+                        } else {
+                            alert(`${HCIDDidntExistMessage} 2020–2021.`);
+                        }
                     } else {
                         alert(`Invalid major or minor associated with ${year}`);
                     }
@@ -129,14 +156,22 @@ window.onload = () => {
 
             case `2021`:
                 if (`major` === majorOrMinor) {
-                    degreeRequirements_MWDD_Link.setAttribute(
-                        `href`,
-                        `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[6]}`);
-                } else {
-                    if (`minor` === majorOrMinor) {
+                    if (`MWD+` === program) {
                         degreeRequirements_MWDD_Link.setAttribute(
                             `href`,
-                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[7]}`);
+                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[6]}`);
+                    } else {
+                        alert(`${HCIDDidntExistMessage} 2021–2022.`);
+                    }
+                } else {
+                    if (`minor` === majorOrMinor) {
+                        if (`MWD+` === program) {
+                            degreeRequirements_MWDD_Link.setAttribute(
+                                `href`,
+                                `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[7]}`);
+                        } else {
+                            alert(`${HCIDDidntExistMessage} 2021–2022.`);
+                        }
                     } else {
                         alert(`Invalid major or minor associated with ${year}`);
                     }
@@ -146,14 +181,22 @@ window.onload = () => {
 
             case `2022`:
                 if (`major` === majorOrMinor) {
-                    degreeRequirements_MWDD_Link.setAttribute(
-                        `href`,
-                        `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[8]}`);
-                } else {
-                    if (`minor` === majorOrMinor) {
+                    if (`HCID+` === program) {
                         degreeRequirements_MWDD_Link.setAttribute(
                             `href`,
-                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[9]}`);
+                            `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[8]}`);
+                    } else {
+                        alert(MWDDoesntExistMessage);
+                    }
+                } else {
+                    if (`minor` === majorOrMinor) {
+                        if (`HCID+` === program) {
+                            degreeRequirements_MWDD_Link.setAttribute(
+                                `href`,
+                                `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[9]}`);
+                        } else {
+                            alert(MWDDoesntExistMessage);
+                        }
                     } else {
                         alert(`Invalid major or minor associated with ${year}`);
                     }
@@ -227,24 +270,28 @@ window.onload = () => {
     let electives_MWDD_AcademicYear = document.getElementById(`electives--mwdd--academic-year`);
     let electives_MWDD_AcademicYear_Link = document.getElementById(`electives--mwdd--academic-year--link`);
     let degreeRequirements_MWDD_MajorOrMinor = document.getElementById(`degree-reqs--mwdd--major-or-minor`);
+    let degreeRequirements_MWDD_HCID_ProgramChoice = document.getElementById(`degree-reqs--mwdd--drop-down--program`);
     let degreeRequirements_MWDD_AcademicYear = document.getElementById(`degree-reqs--mwdd--academic-year`);
     let degreeRequirements_MWDD_Link = document.getElementById(`degree-reqs--mwdd--link`);
     let chosenMajorMinor =
         degreeRequirements_MWDD_MajorOrMinor.options[degreeRequirements_MWDD_MajorOrMinor.selectedIndex].value;
+    let programChoice = degreeRequirements_MWDD_HCID_ProgramChoice.options[degreeRequirements_MWDD_HCID_ProgramChoice.selectedIndex].value;
     let chosenYear =
         degreeRequirements_MWDD_AcademicYear.options[degreeRequirements_MWDD_AcademicYear.selectedIndex].value;
 
     let degreeRequirements_MWDD_URL_Variables = [
-        `catoid=21&poid=4519`,    // Major: 2018–2019
-        `catoid=21&poid=4720`,    // Minor: 2018–2019
-        `catoid=23&poid=4916`,    // Major: 2019–2020
-        `catoid=23&poid=5117`,    // Minor: 2019–2020
-        `catoid=25&poid=5578`,    // Major: 2020–2021
-        `catoid=25&poid=5779`,    // Minor: 2020–2021
-        `catoid=26&poid=5863`,    // Major; 2021–2022
-        `catoid=26&poid=6064`,    // Minor: 2021–2022
-        `catoid=MAJOR&poid=YEAR`, // Major; 2022–2023
-        `catoid=MINOR&poid=YEAR`  // Minor: 2022–2023
+        `catoid=21&poid=4519`,    // Major: 2018–2019 [0]
+        `catoid=21&poid=4720`,    // Minor: 2018–2019 [1]
+        `catoid=23&poid=4916`,    // Major: 2019–2020 [2]
+        `catoid=23&poid=5117`,    // Minor: 2019–2020 [3]
+        `catoid=25&poid=5578`,    // Major: 2020–2021 [4]
+        `catoid=25&poid=5779`,    // Minor: 2020–2021 [5]
+        `catoid=26&poid=5863`,    // Major; 2021–2022 [6]
+        `catoid=26&poid=6064`,    // Minor: 2021–2022 [7]
+        `catoid=29&poid=6637`,    // HCID, Major; 2022–2023 [8]
+        `catoid=29&poid=6838`,    // HCID, Minor: 2022–2023 [9]
+        `catoid=XX&poid=XXXX`,    // HCID, Major; 2023–2024 [10]
+        `catoid=XX&poid=XXXX`     // HCID, Major; 2023–2024 [11]
     ];
 
     setCSDeptCourseSearchURL(
@@ -274,14 +321,20 @@ window.onload = () => {
     degreeRequirements_MWDD_MajorOrMinor.addEventListener(`change`, function () {
         chosenMajorMinor = this.options[this.selectedIndex].value;
 
-        setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
+        setDegreeRequirementsURL(chosenYear, chosenMajorMinor, programChoice);
+    });
+
+    degreeRequirements_MWDD_HCID_ProgramChoice.addEventListener(`change`, function () {
+        programChoice = this.options[this.selectedIndex].value;
+
+        setDegreeRequirementsURL(chosenYear, chosenMajorMinor, programChoice);
     });
 
     // Listen for changes on the year chosen
     degreeRequirements_MWDD_AcademicYear.addEventListener(`change`, function () {
         chosenYear = this.options[this.selectedIndex].value;
 
-        setDegreeRequirementsURL(chosenYear, chosenMajorMinor);
+        setDegreeRequirementsURL(chosenYear, chosenMajorMinor, programChoice);
     });
 
     electives_MWDD_AcademicYear_Link.setAttribute(
