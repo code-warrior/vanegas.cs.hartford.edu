@@ -186,7 +186,7 @@ window.onload = () => {
                             `href`,
                             `${baseURL_Catalog}?${degreeRequirements_MWDD_URL_Variables[8]}`);
                     } else {
-                        alert(MWDDoesntExistMessage);
+                        // alert(MWDDoesntExistMessage);
                     }
                 } else {
                     if (`minor` === majorOrMinor) {
