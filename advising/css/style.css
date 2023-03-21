@@ -72,3 +72,8 @@ pre {
 dd {
  margin-bottom: 20px;
 }
+
+.description-for-link {
+  margin-top: 4px;
+  font-style: italic;
+}
