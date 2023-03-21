@@ -12,6 +12,10 @@ h2 {
  text-align: center;
 }
 
+h3 {
+  margin-bottom: 0;
+}
+
 @media (max-width: 1000px) {
  body {
    width: 96%;
