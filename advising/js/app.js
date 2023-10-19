@@ -32,7 +32,7 @@ window.onload = () => {
         courseSearch__UISDept__DropDown__Year = document.getElementById(`course-search--uis-dept--drop-down--year`),
         courseSearch__UISDept__Link = document.getElementById(`course-search--uis-dept--link`);
 
-    let HCIDDidntExistMessage = `The HCID program did not exist in academic year`;
+    let HCIDDidntExistMessage = `Perhaps you’re looking for the renamed MWDD program. The HCID program did not exist in academic year`;
     let MWDDoesntExistMessage = `As of academic year 2022–2023, the MWD program was renamed HCID.`;
 
     /**
@@ -290,8 +290,8 @@ window.onload = () => {
         `catoid=26&poid=6064`,    // Minor: 2021–2022 [7]
         `catoid=29&poid=6637`,    // HCID, Major; 2022–2023 [8]
         `catoid=29&poid=6838`,    // HCID, Minor: 2022–2023 [9]
-        `catoid=XX&poid=XXXX`,    // HCID, Major; 2023–2024 [10]
-        `catoid=XX&poid=XXXX`     // HCID, Major; 2023–2024 [11]
+        `catoid=31&poid=7286`,    // HCID, Major; 2023–2024 [10]
+        `catoid=31&poid=7487`     // HCID, Minor; 2023–2024 [11]
     ];
 
     setCSDeptCourseSearchURL(
