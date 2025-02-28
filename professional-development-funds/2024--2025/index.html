@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Development Funds for 2024–2025</title>
+  <link rel="stylesheet" href="http://vanegas.cs.hartford.edu/grants/tta/purchase-requests/css/style.css">
+  <style>
+tbody tr td:nth-child(3)::before,
+tbody tr td:nth-child(5)::before{
+  content: "$";
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Professional Development Funds for 2024–2025</h1>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+          <th>Seller</th>
+          <th class="link">Link</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pointers on C</td>
+          <td>Kenneth Reek</td>
+          <td>68.21</td>
+          <td>1</td>
+          <td></td>
+          <td>Amazon</td>
+          <td><a target="_blank" rel="noopener" href="https://www.amazon.com/gp/product/0673999866/ref=ox_sc_act_title_1?smid=A14BPXIEHCB09Y">https://www.amazon.com/gp/product/0673999866/ref=ox_sc_act_title_1?smid=A14BPXIEHCB09Y</a></td>
+          <td>Under the price listing on the right, please scroll down to the <b>Save with Used - Good</b> section and click the <b>$68<sup>21</sup></b> option. As of 2:06 PM on 28 Feb 2025, there’s only one left in stock.</td>
+        </tr>
+        <tr>
+          <td>Effective C, 2nd Edition: An Introduction to Professional C Programming</td>
+          <td>Robert Seacord</td>
+          <td>33.77</td>
+          <td>1</td>
+          <td></td>
+          <td>“”</td>
+          <td><a target="_blank" rel="noopener" href="https://www.amazon.com/gp/product/1718504128/ref=ox_sc_act_title_3?smid=ATVPDKIKX0DER">https://www.amazon.com/gp/product/1718504128/ref=ox_sc_act_title_3?smid=ATVPDKIKX0DER</a></td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>C Traps and Pitfalls</td>
+          <td>Andrew Koenig</td>
+          <td>13.43</td>
+          <td>1</td>
+          <td></td>
+          <td>“”</td>
+          <td><a target="_blank" rel="noopener" href="https://www.amazon.com/gp/product/0201179288/ref=ewc_pr_img_2?smid=A29G165BTNNM2Z">https://www.amazon.com/gp/product/0201179288/ref=ewc_pr_img_2?smid=A29G165BTNNM2Z</a></td>
+          <td>Please ensure that the seller is Jensen Books and that the price is <b>$13<sup>43</sup></b>.</td>
+        </tr>
+        <!-- <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>“”</td>
+          <td><a target="_blank" rel="noopener" href=""></a></td>
+          <td>None</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </main>
+  <footer>
+    <p>Total: $<span></span></p>
+  </footer>
+  <script>
+    let priceNodes = document.querySelectorAll(`tbody tr td:nth-child(3)`);
+    let quantityNodes = document.querySelectorAll(`tbody tr td:nth-child(4)`);
+    let totalPriceNodes = document.querySelectorAll(`tbody tr td:nth-child(5)`);
+    let totalPriceNode = document.getElementsByTagName(`span`)[0];
+
+    let amountOfPriceNodes = priceNodes.length;
+
+    let prices = new Array(amountOfPriceNodes);
+    let quantities = new Array(amountOfPriceNodes);
+
+    let totalPrice = 0;
+
+    for(let i = 0; i < amountOfPriceNodes; i++) {
+      prices[i] = parseFloat(priceNodes[i].textContent);
+      quantities[i] = parseFloat(quantityNodes[i].textContent);
+      totalPriceNodes[i].textContent = (prices[i] * quantities[i]);
+      totalPrice += (prices[i] * quantities[i]);
+    }
+
+    totalPriceNode.textContent = totalPrice;
+  </script>
+</body>
+</html>
